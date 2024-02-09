@@ -1,0 +1,38 @@
+.wrapper {
+    overflow: hidden;
+    cursor: pointer;
+    width: max-content;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 24px 36px;
+    font-family: inherit;
+    text-transform: uppercase;
+    position: relative;
+    & > p {
+        mix-blend-mode: difference;
+        color: rgb(255, 255, 255);
+        transition: 0.1s ease-in-out;
+        transform: translateY(-2px);
+        font-size: 24px !important;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+        filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
+    }
+    &:hover {
+        & .hover {
+            width: calc(68% * 1.5);
+            height: calc(500% * 1.5);
+        }
+    }
+}
+
+.hover {
+    position: absolute;
+    display: block;
+    width: 0%;
+    height: 0%;
+    border-radius: 50%;
+    background-color: #000000;
+    transition: 0.4s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}

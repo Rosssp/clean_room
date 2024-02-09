@@ -1,0 +1,31 @@
+.wrapper {
+    & > * {
+        padding: 24px;
+        background: rgba(255, 255, 255, 1);
+        backdrop-filter: blur(12px);
+    }
+    & .top {
+        margin-bottom: 24px;
+        & > * {
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+    & p {
+        font-size: 24px;
+        opacity: 0.6;
+    }
+    & .cost {
+        opacity: 1;
+        float: right;
+        // -webkit-text-stroke: 1px black;
+        color: rgba(0, 0, 0, 1);
+        font-size: 30px !important;
+    }
+
+    & .form {
+        & * + * {
+            margin-top: 36px;
+        }
+    }
+}

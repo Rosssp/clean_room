@@ -1,0 +1,102 @@
+.wrapper {
+    max-width: 516px;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "block1 bblock2"
+        "block1 block4"
+        "block3 block4";
+    gap: 10px;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, minmax(1fr, auto));
+    & > * {
+        overflow: hidden;
+        position: relative;
+        &::after {
+            opacity: 0.8;
+            content: "";
+            z-index: -1;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(white 24%, transparent 50%);
+        }
+        &::before {
+            opacity: 0.8;
+            content: "";
+            z-index: -1;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        & p {
+            z-index: 1;
+            height: 10px;
+            float: right;
+            text-align: right;
+            width: 70%;
+            font-size: 60px;
+            word-break: break-all;
+        }
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+    }
+
+    & .block1 {
+        &::before {
+            background-image: url("../../assets/imgs/room.png");
+        }
+        & p {
+            transform: translateX(0) translateY(-180%);
+
+            text-align: center;
+            width: 30%;
+            float: left;
+            text-align: left;
+        }
+        grid-area: block1;
+    }
+    & .block2 {
+        &::before {
+            opacity: 0.7;
+            background-image: url("../../assets/imgs/kitchen.png");
+        }
+        & p {
+            transform: translateY(-20%) translateY(-160%);
+        }
+        grid-area: bblock2;
+    }
+    & .block3 {
+        &::before {
+            transform: scale(-1, 1);
+            background-image: url("../../assets/imgs/bath.png");
+        }
+        & p {
+            transform: translateY(-20%) translateY(-150%);
+        }
+        grid-area: block3;
+    }
+    & .block4 {
+        &::before {
+            opacity: 0.5;
+            background-image: url("../../assets/imgs/balcony.png");
+        }
+        & p {
+            transform: translateX(0) translateY(-150%);
+
+            text-align: center;
+            width: 30%;
+            float: left;
+            text-align: left;
+        }
+        grid-area: block4;
+    }
+}

@@ -1,0 +1,17 @@
+// .container {
+//     overflow-y: scroll;
+//     height: 100vh;
+//     scroll-snap-type: y mandatory;
+//     scroll-snap-points-y: repeat(0px);
+//     & .section {
+//         height: 100vh;
+//         scroll-snap-align: start;
+//         scroll-snap-stop: always;
+//     }
+// }
+
+.wrapper {
+    & > div {
+        max-height: 100vh;
+    }
+}

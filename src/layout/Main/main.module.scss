@@ -1,0 +1,157 @@
+.wrapper {
+    overflow: hidden;
+    // margin: 0 auto;
+    // height: calc(100vh - 114px);
+    // padding: 0 24px;
+}
+.layout {
+    height: 100%;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    & h3 {
+        font-weight: 100;
+    }
+    & h3 > span {
+        width: max-content;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -14%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+        }
+    }
+    & .left,
+    .right {
+        width: 25%;
+        position: relative;
+        // transform: translateY(45%);
+        &__title {
+            position: absolute;
+            // position: relative;
+            top: -200%;
+            // transform: translateY(-60%);
+            font-size: 28px !important;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: -30%;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+        & p {
+            font-size: 19px;
+        }
+        & > ul > li {
+            opacity: 0.9;
+        }
+
+        & > ul > li:not(:last-child) {
+            margin-bottom: 24px;
+            position: relative;
+            & ::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: -50%;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+    & .right p {
+        text-align: right;
+    }
+
+    & .center {
+        width: 45%;
+        & > * {
+            text-align: center;
+        }
+        & h1 {
+            margin-bottom: 24px;
+        }
+        & button {
+            float: right;
+            margin-top: 64px;
+            width: 100%;
+        }
+    }
+}
+
+.bgg {
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.bg {
+    position: absolute;
+}
+.leftLamp {
+    animation: bouge 14s infinite alternate-reverse
+        cubic-bezier(0.46, 0.11, 0.74, 0.91);
+
+    width: 24%;
+    height: auto;
+    bottom: -24%;
+    left: 60%;
+    transform: translateX(-50%);
+    rotate: 38deg;
+}
+.sofa {
+    animation: bouge2 10s infinite alternate-reverse
+        cubic-bezier(0.46, 0.11, 0.74, 0.91);
+    width: 20%;
+    height: auto;
+    top: 20%;
+    left: 40%;
+    transform: translateX(-50%);
+    rotate: 38deg;
+}
+.poofik {
+    animation: bouge3 12s infinite alternate-reverse
+        cubic-bezier(0.46, 0.11, 0.74, 0.91);
+    width: 18%;
+    height: auto;
+    bottom: -12%;
+    left: 8%;
+    // filter: blur(6px);
+}
+
+@keyframes bouge {
+    from {
+        transform: translateY(-20px) rotate(-8deg) translateX(-50%);
+    }
+    to {
+        transform: translateY(50px) rotate(-4deg) translateX(-50%);
+    }
+}
+@keyframes bouge2 {
+    from {
+        transform: translateY(50px) rotate(-4deg) translateX(-60%);
+    }
+    to {
+        transform: translateY(80px) rotate(8deg) translateX(-50%);
+    }
+}
+@keyframes bouge3 {
+    from {
+        transform: translateY(50px) rotate(-4deg) translateX(-0%);
+    }
+    to {
+        transform: translateY(0px) rotate(-12deg) translateX(-10%);
+    }
+}
