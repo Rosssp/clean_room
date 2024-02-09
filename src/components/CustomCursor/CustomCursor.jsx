@@ -17,7 +17,7 @@ export default function CustomCursor() {
 
         for (let i = 0; i < links.length; i++) {
             links[i].addEventListener("mouseover", () => {
-                bgMainCursor.current.style.transform = "scale(2)";
+                bgMainCursor.current.style.transform = "scale(4)";
                 bgSecondaryCursor.current.style.transform = "scale(2)";
                 bgSecondaryCursor.current.style.opacity = "0";
                 return;
@@ -31,7 +31,7 @@ export default function CustomCursor() {
         }
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("mouseover", () => {
-                bgMainCursor.current.style.transform = "scale(2)";
+                bgMainCursor.current.style.transform = "scale(4)";
                 bgSecondaryCursor.current.style.transform = "scale(2)";
                 bgSecondaryCursor.current.style.opacity = "0";
                 return;
@@ -80,14 +80,10 @@ export default function CustomCursor() {
             const mouseY = clientY;
 
             //mainCurs
-            mainCursor.current.style.transform = `translate3d(${
-                mouseX - mainCursor.current.clientWidth / 2
-            }px,${mouseY - mainCursor.current.clientHeight / 2}px,0)`;
+            mainCursor.current.style.transform = `translate3d(${mouseX - mainCursor.current.clientWidth / 2}px,${mouseY - mainCursor.current.clientHeight / 2}px,0)`;
             //secondCurs
-            positionRef.current.mouseX =
-                mouseX - secondaryCursor.current.clientWidth / 2;
-            positionRef.current.mouseY =
-                mouseY - secondaryCursor.current.clientHeight / 2;
+            positionRef.current.mouseX = mouseX - secondaryCursor.current.clientWidth / 2;
+            positionRef.current.mouseY = mouseY - secondaryCursor.current.clientHeight / 2;
         });
     }, []);
 
@@ -96,8 +92,7 @@ export default function CustomCursor() {
         const followMouse = () => {
             positionRef.current.key = requestAnimationFrame(followMouse);
 
-            const { mouseX, mouseY, destX, destY, distX, distY } =
-                positionRef.current;
+            const { mouseX, mouseY, destX, destY, distX, distY } = positionRef.current;
 
             if (!destX || !destY) {
                 positionRef.current.destX = mouseX;
@@ -106,11 +101,7 @@ export default function CustomCursor() {
                 positionRef.current.distX = (mouseX - destX) * 0.06;
                 positionRef.current.distY = (mouseY - destY) * 0.06;
 
-                if (
-                    Math.abs(positionRef.current.distX) +
-                        Math.abs(positionRef.current.distY) <
-                    0.01
-                ) {
+                if (Math.abs(positionRef.current.distX) + Math.abs(positionRef.current.distY) < 0.01) {
                     positionRef.current.destX = mouseX;
                     positionRef.current.destY = mouseY;
                 } else {
@@ -127,19 +118,10 @@ export default function CustomCursor() {
     return (
         <div className={styles.cursor_wrapper} ref={parentCursor}>
             <div className={styles.main_cursor} ref={mainCursor}>
-                <div
-                    className={styles.main_cursor_background}
-                    ref={bgMainCursor}
-                ></div>
+                <div className={styles.main_cursor_background} ref={bgMainCursor}></div>
             </div>
-            <div
-                className={`${styles.secondary_cursor} `}
-                ref={secondaryCursor}
-            >
-                <div
-                    className={styles.secondary_cursor_background}
-                    ref={bgSecondaryCursor}
-                ></div>
+            <div className={`${styles.secondary_cursor} `} ref={secondaryCursor}>
+                <div className={styles.secondary_cursor_background} ref={bgSecondaryCursor}></div>
             </div>
         </div>
     );

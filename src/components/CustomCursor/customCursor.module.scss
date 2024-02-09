@@ -5,12 +5,13 @@
     position: fixed;
     pointer-events: none;
     user-select: none;
+    cursor: none;
     border-radius: 50%;
 }
 
 .main_cursor {
-    // mix-blend-mode: difference;
     mix-blend-mode: difference;
+    background-color: white;
 
     &_background {
         width: 36px;

@@ -2,7 +2,7 @@ import Spacer from "./components/Spacer/Spacer";
 import Main from "./layout/Main/Main";
 import styles from "./app.module.scss";
 import Services from "./layout/Services/Services";
-// import Calculator from "./layout/Calculator/Calculator";
+import Calculator from "./layout/Calculator/Calculator";
 
 // import React from "react";
 // import Fullpage, { FullPageSections, FullpageSection } from "react-fullpage";
@@ -47,7 +47,7 @@ function App() {
             <Spacer size={114} />
             <Services />
             <Spacer size={114} />
-            {/* <Calculator /> */}
+            <Calculator />
         </div>
     );
 }
